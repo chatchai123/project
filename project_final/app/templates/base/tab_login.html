@@ -1,0 +1,92 @@
+
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<style>
+     #topbar {
+    background-color: rgb(247, 93, 46);
+    overflow: hidden;
+    width: 100%;
+    position: relative; /* เพิ่ม position relative เพื่อให้สามารถกำหนด z-index ได้ */
+    z-index: 2; /* ตั้งค่า z-index ให้เป็นค่าที่ต่างกับ Slideshow Container */
+  }
+  
+  #topbar a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  #topbar a:hover {
+    background-color: #7f1a1a;
+    color: rgb(223, 223, 223);
+  }
+  
+  #topbar div {
+    float: right;
+  }
+  
+  #topbars div {
+    float: right;
+  }
+  .logoitem {
+    left: 100px;
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    display: flex;
+    align-items: right;
+  }
+  .leftitem {
+    display: flex;
+    margin-right: 44%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .rightitem {
+    margin-right: 10px;
+  }      
+</style>
+<body>
+<div class="logoitem">
+  <h1 class="res_name">โน้ตอาหารตามสั่ง</h1>
+</div>
+<div id="topbar">
+
+  <div class="leftitem">
+    <li class="about-us"><a href="#">ค้นหา</a></li>
+    <form class="search" method="post" action="/search/">
+        {%csrf_token%}
+        <div class="searchbar">
+            <input type="search" aria-label="Search" name="text-search">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+  </div>
+  <div>
+    {% if user.is_authenticated %}
+      <a href="/signout">ออกจากระบบ</a>
+      <a href="/profile">โปรไฟล์</a>
+            
+    {% if user.is_superuser %}
+      <a href="/admin1">หน้าแอดมิน</a> 
+      <a href="#" >เพิมสินค้า</a>
+    {% endif %}
+            
+    {% else %}
+      <a href="login/"><i class="fa fa-fw fa-user"></i>ล็อกอิน</a>
+   {% endif %}
+  </div>
+</div>
+
+<div class="rightitem">
+  <ul>
+      {% if user.is_authenticated %}
+         <li class="orderfood"><a href="#">{{member.user_name}}</a></li>
+      {%endif%}
+  </ul>
+</div>
+
+
+</body>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตะกร้าสั่งอาหาร</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+    {% include 'base/tab_login.html' %}
+    {% include 'base/site_header.html' %}
+    <div class="cart-container">
+        <h2>ตะกร้าสินค้า</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>สินค้า</th>
+                    <th>ราคา</th>
+                    <th>จำนวน</th>
+                    <th>การจัดการ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                <tr>
+                    <td>{{ item.itemImages.item.title }}</td>
+                    <td>{{ item.itemImages.item.price }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>
+                        <form action="{% url 'delete_product' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">ลบรายการ</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="cart-total">
+            <a href="#"><button id="checkout-btn">ชำระเงิน</button></a>
+        </div>
+    </div>
+</body>
+</html>

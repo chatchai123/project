@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+<style>
+    body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: auto;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-container {
+  max-width: 600px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  margin: auto;
+}
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profile-info {
+  font-size: 16px;
+  color: #868e96;
+  margin-bottom: 20px;
+}
+
+.profile-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+<body>
+    {% include 'base/tab_login.html' %}
+    {% include 'base/site_header.html' %}
+
+    <br>
+    {% block content %}
+    <div class="profile-container">
+        <h2>โปรไฟล์ของ {{ user.username }}</h2>
+        <p>ชื่อ: {{ user.userprofile.first_name }}</p>
+        <p>นามสกุล: {{ user.userprofile.last_name }}</p>
+        <p>อีเมล: {{ user.email }}</p>
+        <p>เบอร์โทรศัพท์: {{ user.userprofile.phone_number }}</p>
+        <p>ที่อยู่: {{ user.userprofile.address }}</p>
+        <p>วันเกิด: {{ user.userprofile.birth_date }}</p>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="profile_image" accept="image/*">
+        </form>
+        <br>
+        <a href="{% url 'edit_profile' %}"><button>แก้ไขประวัติ</button></a>
+    </div>
+{% endblock %}
+    </div>
+</body>
+</html>
