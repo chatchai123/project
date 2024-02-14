@@ -17,7 +17,7 @@
         <!-- เพิ่มลิงก์หรือเมนูที่คุณต้องการ -->
     </nav>
     <br>
-    <a href="#">User Management</a>
+    <a href="{% url 'user_management' %}">User Management</a>
     
     <table>
 
@@ -38,7 +38,7 @@
                     <td>{{ user_profile.first_name }}</td>
                     <td>{{ user_profile.last_name }}</td>
                     <td>
-                        <a href="#">User Management</a>
+                        <a href="{% url 'user_management' %}">User Management</a>
                     </td>
                 </tr>
             {% endfor %}

@@ -31,4 +31,8 @@ class AddToCartForm(forms.ModelForm):
         model = Food
         fields ="__all__"
 
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'address', 'birth_date']
 

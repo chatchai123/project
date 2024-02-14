@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สั่งซื้อป้าย</title>
+<link rel="stylesheet" href="{% static 'css/order1.css' %}">
+</head>
+<body>
+  {% include 'base/tab_login.html' %}
+  {% include 'base/site_header.html' %}
+<div class="container">
+  <h2>ข้อมูลป้ายไวนิลที่จะสั่งทำ</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <label for="name">ชื่อป้ายที่ต้องการ:</label>
+    <input type="text" id="name" name="name" placeholder="ชื่อป้าย" required>
+
+    <label for="category">รายการอาหาร</label>
+    <select id="category" name="category">
+      <option value="A0">1</option>
+      <option value="A1">2</option>
+      <option value="A2">3</option>
+      <option value="A3">4</option>
+      <option value="A4">5</option>      
+    </select>
+    
+
+    <label for="material">เมนู:</label>
+    <select id="material" name="material">
+      <option value="Vinyl">1</option>
+      <option value="Acrylic">2</option>
+      <option value="Metal">3</option>
+      <option value="Wood">4</option>
+      <option value="Foamboard">5</option>
+    </select>    
+
+    <label for="message">เมนูเพิ่มเติม:</label>
+    <textarea id="message" name="message" placeholder="เพิ่มเติมเกี่ยวกับเมนู"></textarea>
+
+    <label for="attachment">Attachment:</label>
+    <input type="file" id="attachment" name="attachment">
+
+    <button type="submit">Order</button>
+    
+  </form>
+</div>
+<script src="{% static 'js/order1.js' %}"></script>
+</body>
+</html>

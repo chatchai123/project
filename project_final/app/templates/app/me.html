@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +10,14 @@
 <body>
     {% include 'base/tab_login.html' %}
     {% include 'base/site_header.html' %}
-        <h1 class="res_name">โน้ตอาหารตามสั่ง</h1>
-        <h1 class="name1">ที่อยู่: บ้าน 000 ตำบลวารินชำราบ อำเภอวารินชำราบ จังหวัด อุบลราชธานี</h1>
-        <h1 class="name2">Email : chatchai.so.64@ubu.ac.th</h1>
-        <h1 class="name3">เบอร์โทรศัพท์ : 000-000-0000</h1>
+        <div class="container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1618.8202834193507!2d104.86802386858513!3d15.20083749816959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDEyJzAyLjMiTiAxMDTCsDUyJzA1LjciRQ!5e0!3m2!1sth!2sth!4v1707883304038!5m2!1sth!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="contact-info">
+              <p><strong>Line ID:</strong> <span class="line-id">@Note</span></p>
+              <p><strong>โทรศัพท์:</strong> <span class="phone-number">000-000-0000</span></p>
+              <p><strong>ชื่อร้าน:</strong> โน้ตอาหารตามสั่ง</p>
+              <p><strong>Email:</strong> <a href="mailto:chatchai.so.64@ubu.ac.th" class="email">chatchai.so.64@ubu.ac.th</a></p>
+            </div>
+        </div>
 </body>
 </html>

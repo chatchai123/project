@@ -265,10 +265,15 @@
                       </div>
                       {%endif%}
                       <input type="hidden" name="food_id" value="{{ f.id }}">
-                      <div class="options_sale">
+                      <div class="listitem">
+                        <a href="/foodview/{{f.id}}/">
+                        <div class="options_sale">
+
                           {%if f.options == 'onsale'%}
-                              <label for="option_{{f.id}}"></label>
+                          <label for="option_{{f.id}}"></label>
+                        
                           {%endif%}
+                          
                           {%if f.options == 'soldout'%}
                           <label for="option_{{f.id}}"></label>
                           {%endif%}
@@ -284,6 +289,26 @@
                           {%if f.options == 'notchoose'%}
                           <label for="option_{{f.id}}"></label>
                           {%endif%}
+                          {%if f.options == 'notchoose'%}
+                          <label for="option_{{f.id}}"></label>
+                          {%endif%}
+                          {%if f.options == 'notchoose'%}
+                          <label for="option_{{f.id}}"></label>
+                          {%endif%}
+                          {%if f.options == 'notchoose'%}
+                          <label for="option_{{f.id}}"></label>
+                          {%endif%}
+                          {%if f.options == 'notchoose'%}
+                          <label for="option_{{f.id}}"></label>
+                          {%endif%}
+                          {%if f.options == 'notchoose'%}
+                          <label for="option_{{f.id}}"></label>
+                          {%endif%}
+                          {%if f.options == 'notchoose'%}
+                          <label for="option_{{f.id}}"></label>
+                          {%endif%}
+                        </a>  
+                        </div>
                       </div>
                       <div class="foodname">{{f.name}}</div> 
 
@@ -300,8 +325,7 @@
                   </div>   
         {%endfor%}
     </div>
-    <button type="submit">OK</button>
-    <button type="submit">cancel</button>
+    
   </form>
 </div>
 <!-- Portfolio Gallery Grid -->
